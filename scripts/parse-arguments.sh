@@ -121,6 +121,7 @@ for argument in "$@"; do
     ;;
   --enable-fdk-aac | -fdk-aac)
     EXTERNAL_LIBRARIES+=("libfdkaac")
+    FFMPEG_GPL_ENABLED=true
     ;; 
   --enable-all-free | -all-free)
     EXTERNAL_LIBRARIES+=" ${SUPPORTED_LIBRARIES_FREE[@]}"
