@@ -118,6 +118,9 @@ for argument in "$@"; do
     ;;
   --enable-libbluray | -bluray)
     EXTERNAL_LIBRARIES+=("libbluray")
+    ;;
+  --enable-fdk-aac | -fdk-aac)
+    EXTERNAL_LIBRARIES+=("libfdkaac")
     ;; 
   --enable-all-free | -all-free)
     EXTERNAL_LIBRARIES+=" ${SUPPORTED_LIBRARIES_FREE[@]}"
