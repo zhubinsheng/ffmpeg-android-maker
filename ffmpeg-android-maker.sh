@@ -90,6 +90,7 @@ do
   # If it isn't set, consider SOURCE_DIR_FOR_COMPONENT as the proper value
   COMPONENT_SOURCES_DIR_VARIABLE=SOURCES_DIR_${COMPONENT}
   if [[ -z "${!COMPONENT_SOURCES_DIR_VARIABLE}" ]]; then
+     echo "export ${SOURCE_DIR_FOR_COMPONENT}"
      export SOURCES_DIR_${COMPONENT}=${SOURCE_DIR_FOR_COMPONENT}
   fi
 
@@ -108,6 +109,7 @@ do
     echo "Building the component: ${COMPONENT}"
     COMPONENT_SOURCES_DIR_VARIABLE=SOURCES_DIR_${COMPONENT}
 
+    echo "cd ${COMPONENT_SOURCES_DIR_VARIABLE}"
     # Going to the actual source code directory of the current component
     cd ${!COMPONENT_SOURCES_DIR_VARIABLE}
 

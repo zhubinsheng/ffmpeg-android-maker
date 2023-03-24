@@ -21,6 +21,10 @@ do
   ADDITIONAL_COMPONENTS+=" --enable-$LIBARY_NAME"
 done
 
+  ADDITIONAL_COMPONENTS = " --enable-libfdk-aac"
+
+echo "${ADDITIONAL_COMPONENTS}"
+
 # Referencing dependencies without pkgconfig
 DEP_CFLAGS="-I${BUILD_DIR_EXTERNAL}/${ANDROID_ABI}/include"
 DEP_LD_FLAGS="-L${BUILD_DIR_EXTERNAL}/${ANDROID_ABI}/lib $FFMPEG_EXTRA_LD_FLAGS"
@@ -46,7 +50,8 @@ DEP_LD_FLAGS="-L${BUILD_DIR_EXTERNAL}/${ANDROID_ABI}/lib $FFMPEG_EXTRA_LD_FLAGS"
   --disable-vulkan \
   --pkg-config=${PKG_CONFIG_EXECUTABLE} \
   ${EXTRA_BUILD_CONFIGURATION_FLAGS} \
-  $ADDITIONAL_COMPONENTS || exit 1
+  --enable-nonfree \
+  --enable-libfdk-aac || exit 1
 
 ${MAKE_EXECUTABLE} clean
 ${MAKE_EXECUTABLE} -j${HOST_NPROC}
